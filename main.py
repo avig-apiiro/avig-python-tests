@@ -17,5 +17,5 @@ def get_facebook_data2(endpoint, access_token):
 if __name__ == '__main__':
     data = get_facebook_data('user', "None")
     print(data)
-    if (data == 7):
+    if (data == 8):
         get_facebook_data2("/user", "")
