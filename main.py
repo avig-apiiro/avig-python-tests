@@ -1,5 +1,5 @@
 import requests
-
+from okta import client
 def get_facebook_data(endpoint, access_token):
     url = f"https://graph.facebook.com/v18.0/{endpoint}"
     params = {"access_token": access_token}
@@ -15,6 +15,8 @@ def get_facebook_data2(endpoint, access_token):
     return response.json()
 
 if __name__ == '__main__':
+    client = client.ApplicationClient()
+    client.get_client_secret_for_application("appId", "secretKey")
     data = get_facebook_data('user', "None")
     print(data)
     if (data == 11):
