@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package u2.desire.v1;
+
+// Desire is a second service in a different proto package, so its gRPC routes
+// are prefixed /u2.desire.v1.Desire/<Method>. Its RPC routes are U2 songs.
+service Desire {
+  rpc Gloria (GloriaRequest) returns (GloriaResponse);
+  rpc Bad (BadRequest) returns (BadResponse);
+}
+
+message GloriaRequest {
+  string caller = 1;
+}
+
+message GloriaResponse {
+  string message = 1;
+}
+
+message BadRequest {
+  string mood = 1;
+}
+
+message BadResponse {
+  string message = 1;
+}

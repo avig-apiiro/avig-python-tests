@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+// The proto `package` becomes the prefix of the gRPC route
+// (/u2.vertigo.v1.Vertigo/<Method>). NOTE: unlike Go's `option go_package`,
+// the Python code generator has NO option to rename the generated module or
+// the servicer class -- the module name comes from the .proto file name
+// (vertigo_pb2 / vertigo_pb2_grpc) and the class name is always
+// <Service>Servicer. So the generated Python identifiers cannot be controlled
+// by a proto option; only the route prefix (via `package`) can.
+package u2.vertigo.v1;
+
+// Vertigo is a service whose RPC routes are named after U2 songs.
+service Vertigo {
+  rpc One (OneRequest) returns (OneResponse);
+  rpc Pride (PrideRequest) returns (PrideResponse);
+}
+
+message OneRequest {
+  string singer = 1;
+}
+
+message OneResponse {
+  string message = 1;
+}
+
+message PrideRequest {
+  string name = 1;
+}
+
+message PrideResponse {
+  string message = 1;
+}

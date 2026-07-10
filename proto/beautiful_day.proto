@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package u2.beautifulday.v1;
+
+import "google/api/annotations.proto";
+
+// BeautifulDay demonstrates routes taken ENTIRELY from options. The pure-gRPC
+// route stays /u2.beautifulday.v1.BeautifulDay/<Method>, but the
+// google.api.http option defines a completely custom HTTP/REST path that is
+// independent of the service and method names. Every custom route is under /u2.
+service BeautifulDay {
+  // gRPC route : /u2.beautifulday.v1.BeautifulDay/Elevation
+  // HTTP route : GET /u2/beautiful-day   (entirely from the option)
+  rpc Elevation (ElevationRequest) returns (ElevationResponse) {
+    option (google.api.http) = {
+      get: "/u2/beautiful-day"
+    };
+  }
+
+  // gRPC route : /u2.beautifulday.v1.BeautifulDay/WithOrWithoutYou
+  // HTTP route : POST /u2/with-or-without-you
+  rpc WithOrWithoutYou (WithOrWithoutYouRequest) returns (WithOrWithoutYouResponse) {
+    option (google.api.http) = {
+      post: "/u2/with-or-without-you"
+      body: "*"
+    };
+  }
+}
+
+message ElevationRequest {
+  string mood = 1;
+}
+
+message ElevationResponse {
+  string message = 1;
+}
+
+message WithOrWithoutYouRequest {
+  string partner = 1;
+}
+
+message WithOrWithoutYouResponse {
+  string message = 1;
+}

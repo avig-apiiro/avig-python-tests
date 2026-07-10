@@ -1,0 +1,9 @@
+# Python virtualenv used for gRPC codegen/runtime
+.venv/
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+
+# IDE
+.idea/
