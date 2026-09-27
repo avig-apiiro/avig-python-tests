@@ -1,0 +1,7 @@
+p, reader, /documents/:id, GET
+p, editor, /documents/:id, PUT
+p, admin, /documents/:id, DELETE
+g, alice, reader
+g, bob, editor
+g, bob, reader
+g, carol, admin
