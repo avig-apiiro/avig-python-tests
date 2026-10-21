@@ -1,3 +1,4 @@
+"""Reporting endpoints guarded by the project-local API-key decorator."""
 from datetime import datetime, timezone
 
 from flask import Flask, jsonify
