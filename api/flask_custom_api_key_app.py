@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.get("/healthz")
 def health():
-    return jsonify(status="ok")
+    return jsonify(status="ok", checked_at=datetime.now(timezone.utc).isoformat())
 
 
 @app.get("/reports")
